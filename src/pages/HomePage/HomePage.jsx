@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Movies } from 'components/Movies/Movies';
+import { Movies } from 'components/MoviesSearching/MoviesSearching';
 import { fetchingPopularMovies } from 'components/apiFetching/apiFetching';
 
 export const Homepage = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [popularMoviesId, setPopularMoviesId] = '';
-
-  const handleClick = event => {
-    const movie = event.target;
-    console.log(movie);
-  };
 
   useEffect(() => {
     async function getPopularMoviesData() {
@@ -25,8 +20,8 @@ export const Homepage = () => {
       <h1>Trending this week</h1>
       <ul>
         {popularMovies.map(movie => (
-          <li key={movie.id} onClick={e => setPopularMoviesId(movie.id)}>
-            {movie.title}
+          <li key={movie.id}>
+            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
           </li>
         ))}
       </ul>

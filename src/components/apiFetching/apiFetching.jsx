@@ -20,7 +20,17 @@ export async function fetchingPopularMovies() {
 
 export async function fetchingMovieDetails(movieId) {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/${movieId}?api_key=${apiKey}`
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`
+  );
+  if (response === null) {
+    Notify.failure('Fetching movies failed, please try again later');
+  }
+  return response.data;
+}
+
+export async function fetchingSearchedMovie(query) {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`
   );
   if (response === null) {
     Notify.failure('Fetching movies failed, please try again later');
