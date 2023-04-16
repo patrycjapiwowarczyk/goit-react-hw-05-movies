@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Movies } from 'components/MoviesSearching/MoviesSearching';
 import { fetchingPopularMovies } from 'components/apiFetching/apiFetching';
+import css from './HomePage.module.css';
 
 export const Homepage = () => {
   const [popularMovies, setPopularMovies] = useState([]);
-  const [popularMoviesId, setPopularMoviesId] = '';
 
   useEffect(() => {
     async function getPopularMoviesData() {
@@ -16,12 +15,17 @@ export const Homepage = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Trending this week</h1>
-      <ul>
+    <div className={css.trendingMovies__container}>
+      <h1 className={css.trendingMovies__header}>Trending this week</h1>
+      <ul className={css.trendingMovies__list}>
         {popularMovies.map(movie => (
-          <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+          <li className={css.trendingMovies__item} key={movie.id}>
+            <Link
+              className={css.trendingMovies__link}
+              to={`/movies/${movie.id}`}
+            >
+              {movie.title}
+            </Link>
           </li>
         ))}
       </ul>

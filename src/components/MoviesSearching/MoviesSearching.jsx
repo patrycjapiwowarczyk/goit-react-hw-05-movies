@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useLocation } from 'react';
-import { Notify } from 'notiflix';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { fetchingSearchedMovie } from 'components/apiFetching/apiFetching';
+import css from './MoviesSearching.module.css';
 
 const MoviesSearching = () => {
   const [searchedMovieData, setSearchedMovieData] = useState([]);
@@ -32,25 +31,32 @@ const MoviesSearching = () => {
   };
 
   return (
-    <div>
-      <div>
-        <form onSubmit={handleSearch}>
+    <div className={css.moviesSearching__container}>
+      <div className={css.moviesSearching}>
+        <form className={css.moviesSearching__form} onSubmit={handleSearch}>
           <input
+            className={css.moviesSearching__input}
             type="text"
             placeholder="Enter a movie name"
             value={query}
             onChange={handleChange}
             id="movie_search"
           />
-          <button type="submit">Search</button>
+          <button className={css.moviesSearching__button} type="submit">
+            Search
+          </button>
         </form>
       </div>
       <div>
-        <h1>Trending this week</h1>
-        <ul>
+        <ul className={css.moviesSearching__list}>
           {searchedMovieData.map(movie => (
             <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+              <Link
+                className={css.moviesSearching__link}
+                to={`/movies/${movie.id}`}
+              >
+                {movie.title}
+              </Link>
             </li>
           ))}
         </ul>

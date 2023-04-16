@@ -1,0 +1,16 @@
+.reviews__container {
+  display: flex;
+  flex-direction: column;
+  margin-left: -30px;
+}
+.reviews__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.reviews__notFound {
+    margin-top: 20px;
+  }
+  

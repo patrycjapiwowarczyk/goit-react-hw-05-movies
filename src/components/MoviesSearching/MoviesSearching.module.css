@@ -1,0 +1,44 @@
+.moviesSearching__container {
+  padding: 20px;
+}
+.moviesSearching {
+}
+.moviesSearching__form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.moviesSearching__input {
+  width: 250px;
+  height: 25px;
+  padding-left: 15px;
+}
+.moviesSearching__button {
+  background-color: rgb(25, 76, 71);
+  color: white;
+  border: none;
+  width: 90px;
+}
+.moviesSearching__list {
+  padding-top: 20px;
+  list-style-type: decimal;
+  margin-left: -20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.moviesSearching__link {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+.moviesSearching__link:hover {
+  color: rgb(25, 51, 44);
+}
+
+.moviesSearching__link:visited {
+  color: rgb(17, 136, 122);
+}
+.moviesSearching__link:active {
+  color: rgb(75, 139, 115);
+}

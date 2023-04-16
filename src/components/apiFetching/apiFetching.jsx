@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Notify } from 'notiflix';
 import axios from 'axios';
 
@@ -31,6 +30,26 @@ export async function fetchingMovieDetails(movieId) {
 export async function fetchingSearchedMovie(query) {
   const response = await axios.get(
     `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`
+  );
+  if (response === null) {
+    Notify.failure('Fetching movies failed, please try again later');
+  }
+  return response.data;
+}
+
+export async function fetchingMovieCast(movieId) {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`
+  );
+  if (response === null) {
+    Notify.failure('Fetching movies failed, please try again later');
+  }
+  return response.data;
+}
+
+export async function fetchingMovieReviews(movieId) {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}`
   );
   if (response === null) {
     Notify.failure('Fetching movies failed, please try again later');
