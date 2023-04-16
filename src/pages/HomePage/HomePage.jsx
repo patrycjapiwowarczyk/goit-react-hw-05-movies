@@ -16,7 +16,9 @@ export const Homepage = () => {
 
   return (
     <div className={css.trendingMovies__container}>
-      <h1 className={css.trendingMovies__header}>Trending this week</h1>
+      <p className={css.trendingMovies__header}>
+        <b>Trending this week:</b>
+      </p>
       <ul className={css.trendingMovies__list}>
         {popularMovies.map(movie => (
           <li className={css.trendingMovies__item} key={movie.id}>

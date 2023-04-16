@@ -5,6 +5,7 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import css from './MovieDetails.module.css';
+import ImageNotFound from '../../images/clapper-2140602_1920.jpg';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -33,7 +34,11 @@ const MovieDetails = () => {
         <div className={css.movieDetails__img}>
           <img
             className={css.movieDetails__poster}
-            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                : ImageNotFound
+            }
             alt={title}
           />
         </div>

@@ -4,18 +4,18 @@
 }
 .movieDetails {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: row;
   gap: 30px;
 }
 
 .movieDetails__poster {
-  width: 200px;
+  width: 300px;
 }
-.movieDetails__info {
-}
+
 .movieDetails__title {
   font-size: 25px;
-  padding-bottom: 15px;
 }
 .movieDetails__genres {
   display: flex;
@@ -33,7 +33,6 @@
   padding-top: 25px;
   display: flex;
   flex-direction: column;
-  
 }
 
 .additionalInfo__list {

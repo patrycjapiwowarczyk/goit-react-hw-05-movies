@@ -34,7 +34,7 @@ const Reviews = () => {
             <p>
               <b>Author: {review.author}</b>
             </p>
-            <p>{review.content}</p>
+            {<div dangerouslySetInnerHTML={{ __html: review.content }}></div>}
           </li>
         ))}
       </ul>
